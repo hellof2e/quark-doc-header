@@ -1,4 +1,4 @@
-import { QuarkElement, Fragment, property, state, customElement } from "quarkc"
+import { QuarkElement, Fragment, createRef, customElement } from "quarkc"
 import style from "./main.css"
 import "./dark-light-mode.mjs"
 
@@ -52,6 +52,8 @@ class MyComponent extends QuarkElement {
   #ecosystemLangs
   #isSearchShow
 
+  searchRef = createRef()
+
   constructor() {
     super()
     this.#isZhLang = localStorage.getItem("language") === "zh-CN"
@@ -61,10 +63,10 @@ class MyComponent extends QuarkElement {
 
 
   componentDidMount(): void {
-    console.log(location, 333);
+    const container = this.searchRef.current;
     if(location.host.indexOf("vue-quarkdesign") > -1) {
       docsearch({
-        container: "#docsearch",
+        container,
         appId: "EA4BY59U66",
         indexName:
           localStorage.getItem("language") === "en-US" ? "ENDoc" : "CNDoc",
@@ -72,14 +74,12 @@ class MyComponent extends QuarkElement {
       });
     } else if(location.host.indexOf("react-quarkdesign") > -1) {
       docsearch({
-        container: "#docsearch",
+        container,
         appId: "EA4BY59U66",
         indexName:
           localStorage.getItem("language") === "en-US" ? "react-ENDoc" : "react-CNDoc",
         apiKey: "5d1fd7c976a98a74421011f1374dd200",
       });
-    } else {
-      this.#isSearchShow = false
     }
   }
 
@@ -106,10 +106,8 @@ class MyComponent extends QuarkElement {
                 <a href="/">
                   <img src="https://quark.hellobike.com/assets/quark-logo.f9a6a307.png" alt="" />
                 </a>
-                {/* <span href="/"> @2023 </span> */}
-                {
-                  this.#isSearchShow ? <div id="docsearch"></div> : null
-                }
+
+                <div ref={this.searchRef} id="docsearch"></div>
               </div>
 
               <div class="toper-bar">
