@@ -1,6 +1,6 @@
-import { QuarkElement, Fragment, createRef, customElement } from "quarkc"
+import { QuarkElement, Fragment, createRef, customElement, state } from "quarkc"
 import style from "./main.css"
-import "./dark-light-mode.mjs"
+import "./dark-light-mode.mjs" // 备注：黑夜模式切换包含了全局css变量的更改，只在引用的工程中生效
 
 import docsearch from "@docsearch/js";
 import "@docsearch/css";
@@ -50,7 +50,9 @@ const langs = {
 class MyComponent extends QuarkElement {
   #isZhLang
   #ecosystemLangs
-  #isSearchShow
+
+  @state() // 响应式内部状态
+  logo = 'https://quark.hellobike.com/assets/quark-logo.f9a6a307.png'
 
   searchRef = createRef()
 
@@ -58,12 +60,12 @@ class MyComponent extends QuarkElement {
     super()
     this.#isZhLang = localStorage.getItem("language") === "zh-CN"
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
-    this.#isSearchShow = true
   }
 
 
   componentDidMount(): void {
     const container = this.searchRef.current;
+
     if(location.host.indexOf("vue-quarkdesign") > -1) {
       docsearch({
         container,
@@ -72,6 +74,7 @@ class MyComponent extends QuarkElement {
           localStorage.getItem("language") === "en-US" ? "ENDoc" : "CNDoc",
         apiKey: "5d1fd7c976a98a74421011f1374dd200",
       });
+      this._logoSwitch()
     } else if(location.host.indexOf("react-quarkdesign") > -1) {
       docsearch({
         container,
@@ -80,6 +83,18 @@ class MyComponent extends QuarkElement {
           localStorage.getItem("language") === "en-US" ? "react-ENDoc" : "react-CNDoc",
         apiKey: "5d1fd7c976a98a74421011f1374dd200",
       });
+      this._logoSwitch()
+    }
+  }
+
+  _logoSwitch = () => {
+    const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
+    if (localStorage.theme === "dark") {
+      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/9uKAS_quark-logo3.png?x-oss-process=image/quality,q_80'
+    } else if (localStorage.theme === "light") {
+      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/8k1Dm_quark-logo2.png?x-oss-process=image/quality,q_80'
+    } else if(themeMedia.matches && localStorage.theme !== "light") {
+      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/9uKAS_quark-logo3.png?x-oss-process=image/quality,q_80'
     }
   }
 
@@ -104,7 +119,7 @@ class MyComponent extends QuarkElement {
             <div class="container">
               <div class="left-bar">
                 <a href="/">
-                  <img src="https://quark.hellobike.com/assets/quark-logo.f9a6a307.png" alt="" />
+                  <img src={this.logo} alt="" />
                 </a>
 
                 <div ref={this.searchRef} id="docsearch"></div>
