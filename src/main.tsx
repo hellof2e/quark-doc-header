@@ -54,6 +54,9 @@ class MyComponent extends QuarkElement {
   @state() // 响应式内部状态
   logo = 'https://m.hellobike.com/resource/helloyun/13459/7DHrJ_quarkc.png?x-oss-process=image/quality,q_80'
 
+  @state() // 响应式内部状态
+  githubUrl = 'https://github.com/hellof2e/quark-design'
+
   searchRef = createRef()
 
   constructor() {
@@ -85,6 +88,7 @@ class MyComponent extends QuarkElement {
       this._quarkdLogoSwitch()
     } else {
       this._quarkcLogoSwitch()
+      this.githubUrl = 'https://github.com/hellof2e/quark'
     }
   }
 
@@ -132,8 +136,8 @@ class MyComponent extends QuarkElement {
           <div>
             <div class="container">
               <div class="left-bar">
-                <a href="/">
-                  <img src={this.logo} alt="" />
+                <a href="https://quark.hellobike.com">
+                  <img src={this.logo} alt="logo" />
                 </a>
 
                 <div ref={this.searchRef} id="docsearch"></div>
@@ -395,7 +399,7 @@ class MyComponent extends QuarkElement {
                   </a>
 
                   <a
-                    href="https://github.com/hellof2e/quark-design"
+                    href={this.githubUrl}
                     class="github-link"
                     target="_blank"
                   >
