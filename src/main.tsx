@@ -52,7 +52,7 @@ class MyComponent extends QuarkElement {
   #ecosystemLangs
 
   @state() // 响应式内部状态
-  logo = 'https://m.hellobike.com/resource/helloyun/13459/7DHrJ_quarkc.png?x-oss-process=image/quality,q_80'
+  logo = 'https://m.hellobike.com/resource/helloyun/13459/H3kyK_quarkc-light.png?x-oss-process=image/quality,q_80'
 
   @state() // 响应式内部状态
   githubUrl = 'https://github.com/hellof2e/quark-design'
@@ -96,11 +96,11 @@ class MyComponent extends QuarkElement {
   _quarkdLogoSwitch = () => {
     const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
     if (localStorage.theme === "dark") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/9uKAS_quark-logo3.png?x-oss-process=image/quality,q_80'
+      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/MRdWv_quarkd-light.png?x-oss-process=image/quality,q_80'
     } else if (localStorage.theme === "light") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/8k1Dm_quark-logo2.png?x-oss-process=image/quality,q_80'
+      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/Z_3qI_quarkd-dark.png?x-oss-process=image/quality,q_80'
     } else if(themeMedia.matches && localStorage.theme !== "light") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/9uKAS_quark-logo3.png?x-oss-process=image/quality,q_80'
+      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/MRdWv_quarkd-light.png?x-oss-process=image/quality,q_80'
     }
   }
 
@@ -108,11 +108,11 @@ class MyComponent extends QuarkElement {
   _quarkcLogoSwitch = () => {
     const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
     if (localStorage.theme === "dark") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/7DHrJ_quarkc.png?x-oss-process=image/quality,q_80'
+      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/H3kyK_quarkc-light.png?x-oss-process=image/quality,q_80'
     } else if (localStorage.theme === "light") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/LTgkh_quarkc2.png?x-oss-process=image/quality,q_80'
+      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/Dc16h_quarkc-dark.png?x-oss-process=image/quality,q_80'
     } else if(themeMedia.matches && localStorage.theme !== "light") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/7DHrJ_quarkc.png?x-oss-process=image/quality,q_80'
+      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/H3kyK_quarkc-light.png?x-oss-process=image/quality,q_80'
     }
   }
 
