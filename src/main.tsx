@@ -57,6 +57,7 @@ class MyComponent extends QuarkElement {
   #ecosystemLangs
   #curHost
   #isQuarkc
+  #isDocNotReady
 
   // 响应式内部状态
   @state()  // logo
@@ -88,8 +89,12 @@ class MyComponent extends QuarkElement {
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
     this.#curHost = `https://${location.host}` // e.g. https://vue-quarkdesign.hellobike.com
     this.#isQuarkc = ~location.host.indexOf('quark.hellobike.com') // 是否是 quarkc
-  }
+    this.#isDocNotReady = false
 
+    if(~['vanilla', 'angular', 'svelte'].indexOf(location.host.split('-')[0])) {
+      this.#isDocNotReady = true
+    }
+  }
 
   componentDidMount(): void {
     // 默认设置语言
@@ -175,6 +180,12 @@ class MyComponent extends QuarkElement {
   render() {
     return (
       <Fragment>
+        {
+          this.#isDocNotReady ?
+          <div className="toper-message">
+            <a href="https://vue-quarkdesign.hellobike.com">文档更新中，可先参照 Vue 文档（Coming soon...）</a>
+          </div> : null
+        }
         <header class="header">
           <div>
             <div class="container">

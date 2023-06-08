@@ -307,3 +307,21 @@ button {
   color: var(--docsearch-text-color);
   outline: none;
 }
+
+
+.toper-message {
+  background-color: #000000;
+  text-align: center;
+  line-height: 30px;
+  font-size: 13px;
+  color: #fff;
+}
+
+.toper-message a {
+  color: #fff;
+  opacity: .85;
+}
+
+.toper-message a:hover {
+  opacity: 1;
+}
