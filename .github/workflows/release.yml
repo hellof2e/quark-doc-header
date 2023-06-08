@@ -38,6 +38,8 @@ jobs:
           minor-wording:  'feat-minor'
           major-wording:  'BREAK CHANGE'
 
+          rc-wording:     'RELEASE,alpha'
+
       - name: Publish to NPM
         run: npm publish || true
         env:
