@@ -9,6 +9,7 @@ const langs = {
   "zh-CN": {
     ecosystem: "生态系统",
     docsTitle: "组件库文档",
+    component: '组件',
     docs: "组件库",
     guide: "指南",
     officialLibrary: "官方工具",
@@ -21,14 +22,15 @@ const langs = {
     stacks: [
       "Vue",
       "React",
-      // "Svelte(开发中)",
-      // "Angular(开发中)",
-      // "JS/JQ(开发中)",
+      "Svelte",
+      "Angular",
+      "Javascript",
     ],
   },
   "en-US": {
     ecosystem: "Ecosystem",
     docsTitle: "Docs",
+    component: 'Components',
     docs: "Docs",
     guide: "Guide",
     officialLibrary: "Offical Tools",
@@ -41,9 +43,9 @@ const langs = {
     stacks: [
       "Vue",
       "React",
-      // "Svelte(Work in progress)",
-      // "Angular(Work in progress)",
-      // "JS/JQ(Work in progress)",
+      "Svelte",
+      "Angular",
+      "Javascript",
     ],
   },
 };
@@ -53,17 +55,24 @@ class MyComponent extends QuarkElement {
   #isZhLang
   #ecosystemLangs
 
-  @state() // 响应式内部状态
+  // 响应式内部状态
+  @state()  // logo
   logo = 'https://m.hellobike.com/resource/helloyun/13459/H3kyK_quarkc-light.png?x-oss-process=image/quality,q_80'
 
-  @state() // 响应式内部状态
+  @state() // github 地址
   githubUrl = 'https://github.com/hellof2e/quark-design'
 
-  @state() // 响应式内部状态
+  @state() // 首页地址
   homeUrl = 'https://quark.hellobike.com'
 
-  @state() // 响应式内部状态
+  @state() // 指南 url
   guideUrl = ''
+
+  @state() // 组件 url
+  componentUrl = ''
+
+  @state() // 组件 url
+  isQuarkc = false
 
   searchRef = createRef()
 
@@ -92,6 +101,7 @@ class MyComponent extends QuarkElement {
       this._quarkdLogoSwitch()
       this.homeUrl = 'https://vue-quarkdesign.hellobike.com'
       this.guideUrl = `https://vue-quarkdesign.hellobike.com/#/${localStorage.getItem("language")}/guide/quickstart`
+      this.componentUrl = `https://vue-quarkdesign.hellobike.com/#/${localStorage.getItem("language")}/component/button`
     } else if(location.host.indexOf("react-quarkdesign") > -1) {
       docsearch({
         container,
@@ -103,9 +113,11 @@ class MyComponent extends QuarkElement {
       this._quarkdLogoSwitch()
       this.homeUrl = 'https://react-quarkdesign.hellobike.com'
       this.guideUrl = `https://react-quarkdesign.hellobike.com/#/${localStorage.getItem("language")}/guide/quickstart`
+      this.componentUrl = `https://react-quarkdesign.hellobike.com/#/${localStorage.getItem("language")}/component/button`
     } else {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
+      this.isQuarkc = true
     }
   }
 
@@ -162,15 +174,26 @@ class MyComponent extends QuarkElement {
 
               <div class="toper-bar">
                 <div class="menu-group">
-                  <div class="nav-item menu">
-                    <a
-                      target="_blank"
-                      href={this.guideUrl}
-                    >
+                  {
+                    this.isQuarkc ? null :
+                    <Fragment>
+                      <div class="nav-item menu">
+                        <a
+                          href={this.guideUrl}
+                        >
+                          {this.#ecosystemLangs.guide}
+                        </a>
+                      </div>
+                      <div class="nav-item menu">
+                        <a
+                          href={this.componentUrl}
+                        >
 
-                      {this.#ecosystemLangs.guide}
-                    </a>
-                  </div>
+                          {this.#ecosystemLangs.component}
+                        </a>
+                      </div>
+                    </Fragment>
+                  }
 
                   <div class="nav-item flyout">
                     <button type="button">
@@ -222,7 +245,7 @@ class MyComponent extends QuarkElement {
                               </a>
                               )
                             }
-                            <p class="link menu-link" style="color: #aaa">
+                            {/* <p class="link menu-link" style="color: #aaa">
                               Angular (Work in progress)
                             </p>
                             <p class="link menu-link" style="color: #aaa">
@@ -230,7 +253,7 @@ class MyComponent extends QuarkElement {
                             </p>
                             <p class="link menu-link" style="color: #aaa">
                               Javascript (Work in progress)
-                            </p>
+                            </p> */}
                           </div>
                         </div>
                       </div>
