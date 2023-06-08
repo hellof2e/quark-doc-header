@@ -153,7 +153,7 @@ class MyComponent extends QuarkElement {
           <div>
             <div class="container">
               <div class="left-bar">
-                <a href="https://quark.hellobike.com">
+                <a href={this.homeUrl}>
                   <img src={this.logo} alt="logo" />
                 </a>
 
