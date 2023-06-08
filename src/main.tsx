@@ -127,7 +127,7 @@ class MyComponent extends QuarkElement {
     } else {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
-      this.isQuarkc = !true
+      this.isQuarkc = true
     }
   }
 
