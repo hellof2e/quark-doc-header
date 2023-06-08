@@ -34,8 +34,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
         with:
-          patch-wording:  'fix'     # Providing patch-wording will override commits
-          minor-wording:  'feat'
+          patch-wording:  'feat'     # Providing patch-wording will override commits
+          minor-wording:  'feat-minor'
           major-wording:  'BREAK CHANGE'
 
       - name: Publish to NPM
