@@ -52,12 +52,9 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # 下面主要是创建 github 的release
-      # 使用 tyankatsu0105/read-package-version-actions@v1 工具来读取对应的package.json 数据
+      # 读取对应的 package.json 版本
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
-        with:
-          path: './package/quark-doc-header'
         id: package-version
 
       - name: Create Release for Tag
