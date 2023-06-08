@@ -165,7 +165,7 @@ class MyComponent extends QuarkElement {
                   <div class="nav-item menu">
                     <a
                       target="_blank"
-                      href="https://quark-playground.hellobike.com/#/hello-world"
+                      href={this.guideUrl}
                     >
 
                       {this.#ecosystemLangs.guide}
