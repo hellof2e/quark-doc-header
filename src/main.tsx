@@ -9,7 +9,8 @@ const langs = {
   "zh-CN": {
     ecosystem: "生态系统",
     docsTitle: "组件库文档",
-    docs: "组件库文档",
+    docs: "组件库",
+    guide: "指南",
     officialLibrary: "官方工具",
     stack: "用 Quark 构建跨技术栈组件",
     noFrame: "用 Quark 构建无框架应用（Beta）",
@@ -29,6 +30,7 @@ const langs = {
     ecosystem: "Ecosystem",
     docsTitle: "Docs",
     docs: "Docs",
+    guide: "Guide",
     officialLibrary: "Offical Tools",
     stack: "Building cross-technology-stack components with Quark",
     noFrame: "Building frameworkless applications with Quark (Beta)",
@@ -60,6 +62,9 @@ class MyComponent extends QuarkElement {
   @state() // 响应式内部状态
   homeUrl = 'https://quark.hellobike.com'
 
+  @state() // 响应式内部状态
+  guideUrl = ''
+
   searchRef = createRef()
 
   constructor() {
@@ -70,6 +75,11 @@ class MyComponent extends QuarkElement {
 
 
   componentDidMount(): void {
+    // 默认设置语言
+    if(!localStorage.getItem('language')) {
+      localStorage.setItem('language', 'en-US')
+    }
+
     const container = this.searchRef.current;
     if(location.host.indexOf("vue-quarkdesign") > -1) {
       docsearch({
@@ -81,6 +91,7 @@ class MyComponent extends QuarkElement {
       });
       this._quarkdLogoSwitch()
       this.homeUrl = 'https://vue-quarkdesign.hellobike.com'
+      this.guideUrl = `https://vue-quarkdesign.hellobike.com/#/${localStorage.getItem("language")}/guide/quickstart`
     } else if(location.host.indexOf("react-quarkdesign") > -1) {
       docsearch({
         container,
@@ -91,6 +102,7 @@ class MyComponent extends QuarkElement {
       });
       this._quarkdLogoSwitch()
       this.homeUrl = 'https://react-quarkdesign.hellobike.com'
+      this.guideUrl = `https://react-quarkdesign.hellobike.com/#/${localStorage.getItem("language")}/guide/quickstart`
     } else {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
@@ -150,6 +162,16 @@ class MyComponent extends QuarkElement {
 
               <div class="toper-bar">
                 <div class="menu-group">
+                  <div class="nav-item menu">
+                    <a
+                      target="_blank"
+                      href="https://quark-playground.hellobike.com/#/hello-world"
+                    >
+
+                      {this.#ecosystemLangs.guide}
+                    </a>
+                  </div>
+
                   <div class="nav-item flyout">
                     <button type="button">
                       <span>{this.#ecosystemLangs.docs}</span>
