@@ -31,7 +31,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 12
+          node-version: 16
           registry-url: https://registry.npmjs.org
 
           # 根据commit关键词触发publish的版本 https://github.com/phips28/gh-action-bump-version#workflow
@@ -51,6 +51,14 @@ jobs:
         run: npm publish || true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      # 下面主要是创建 github 的release
+      # 使用 tyankatsu0105/read-package-version-actions@v1 工具来读取对应的package.json 数据
+      - name: Read package.json
+        uses: tyankatsu0105/read-package-version-actions@v1
+        with:
+          path: './package/quark-doc-header'
+        id: package-version
 
       - name: Create Release for Tag
         id: release_tag
