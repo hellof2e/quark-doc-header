@@ -52,9 +52,11 @@ const langs = {
 
 @customElement({ tag: "quark-doc-header", style })
 class MyComponent extends QuarkElement {
+  // 非响应式变量
   #isZhLang
   #ecosystemLangs
   #curHost
+  #isQuarkc
 
   // 响应式内部状态
   @state()  // logo
@@ -85,6 +87,7 @@ class MyComponent extends QuarkElement {
     this.#isZhLang = localStorage.getItem("language") === "zh-CN"
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
     this.#curHost = `https://${location.host}` // e.g. https://vue-quarkdesign.hellobike.com
+    this.#isQuarkc = ~location.host.indexOf('quark.hellobike.com') // 是否是 quarkc
   }
 
 
@@ -129,7 +132,6 @@ class MyComponent extends QuarkElement {
     } else {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
-      this.isQuarkc = true
     }
   }
 
@@ -187,7 +189,7 @@ class MyComponent extends QuarkElement {
               <div class="toper-bar">
                 <div class="menu-group">
                   {
-                    this.isQuarkc ? null :
+                    this.#isQuarkc ? null :
                     <Fragment>
                       <div class={this.activeNav  === 'guide'? 'nav-item menu active-nav' : 'nav-item menu'}>
                         <a
