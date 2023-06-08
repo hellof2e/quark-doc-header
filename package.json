@@ -1,6 +1,6 @@
 {
   "name": "quark-doc-header",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "main": "./lib/index.js",
   "module": "./lib/index.js",
   "files": [
