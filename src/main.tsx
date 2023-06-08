@@ -22,9 +22,9 @@ const langs = {
     stacks: [
       "Vue",
       "React",
+      "Vanilla",
       "Svelte",
       "Angular",
-      "Javascript",
     ],
   },
   "en-US": {
@@ -43,9 +43,9 @@ const langs = {
     stacks: [
       "Vue",
       "React",
+      "Vanilla",
       "Svelte",
       "Angular",
-      "Javascript",
     ],
   },
 };
