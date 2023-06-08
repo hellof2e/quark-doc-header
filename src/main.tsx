@@ -54,6 +54,7 @@ const langs = {
 class MyComponent extends QuarkElement {
   #isZhLang
   #ecosystemLangs
+  #curHost
 
   // 响应式内部状态
   @state()  // logo
@@ -83,6 +84,7 @@ class MyComponent extends QuarkElement {
     super()
     this.#isZhLang = localStorage.getItem("language") === "zh-CN"
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
+    this.#curHost = `https://${location.host}` // e.g. https://vue-quarkdesign.hellobike.com
   }
 
 
@@ -99,31 +101,31 @@ class MyComponent extends QuarkElement {
       this.activeNav = 'component'
     }
 
+    // 主页跳转地址
+    this.homeUrl = this.#curHost // e.g. https://vue-quarkdesign.hellobike.com
+    this.guideUrl = `${this.#curHost}/#/${localStorage.getItem("language")}/guide/quickstart`
+    this.componentUrl = `${this.#curHost}/#/${localStorage.getItem("language")}/component/button`
+
     const container = this.searchRef.current;
+    const params = {
+      container,
+      appId: "EA4BY59U66",
+      apiKey: "5d1fd7c976a98a74421011f1374dd200",
+    }
     if(location.host.indexOf("vue-quarkdesign") > -1) {
       docsearch({
-        container,
-        appId: "EA4BY59U66",
+        ...params,
         indexName:
           localStorage.getItem("language") === "en-US" ? "ENDoc" : "CNDoc",
-        apiKey: "5d1fd7c976a98a74421011f1374dd200",
       });
       this._quarkdLogoSwitch()
-      this.homeUrl = 'https://vue-quarkdesign.hellobike.com'
-      this.guideUrl = `https://vue-quarkdesign.hellobike.com/#/${localStorage.getItem("language")}/guide/quickstart`
-      this.componentUrl = `https://vue-quarkdesign.hellobike.com/#/${localStorage.getItem("language")}/component/button`
     } else if(location.host.indexOf("react-quarkdesign") > -1) {
       docsearch({
-        container,
-        appId: "EA4BY59U66",
+        ...params,
         indexName:
           localStorage.getItem("language") === "en-US" ? "react-ENDoc" : "react-CNDoc",
-        apiKey: "5d1fd7c976a98a74421011f1374dd200",
       });
       this._quarkdLogoSwitch()
-      this.homeUrl = 'https://react-quarkdesign.hellobike.com'
-      this.guideUrl = `https://react-quarkdesign.hellobike.com/#/${localStorage.getItem("language")}/guide/quickstart`
-      this.componentUrl = `https://react-quarkdesign.hellobike.com/#/${localStorage.getItem("language")}/component/button`
     } else {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
