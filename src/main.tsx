@@ -57,6 +57,9 @@ class MyComponent extends QuarkElement {
   @state() // 响应式内部状态
   githubUrl = 'https://github.com/hellof2e/quark-design'
 
+  @state() // 响应式内部状态
+  homeUrl = 'https://quark.hellobike.com'
+
   searchRef = createRef()
 
   constructor() {
@@ -77,6 +80,7 @@ class MyComponent extends QuarkElement {
         apiKey: "5d1fd7c976a98a74421011f1374dd200",
       });
       this._quarkdLogoSwitch()
+      this.homeUrl = 'https://vue-quarkdesign.hellobike.com'
     } else if(location.host.indexOf("react-quarkdesign") > -1) {
       docsearch({
         container,
@@ -86,6 +90,7 @@ class MyComponent extends QuarkElement {
         apiKey: "5d1fd7c976a98a74421011f1374dd200",
       });
       this._quarkdLogoSwitch()
+      this.homeUrl = 'https://react-quarkdesign.hellobike.com'
     } else {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
