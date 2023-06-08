@@ -29,10 +29,12 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: https://registry.npmjs.org
+
+          # 打包
+      - run: npm run build
 
           # 根据commit关键词触发publish的版本 https://github.com/phips28/gh-action-bump-version#workflow
           # If the string "BREAKING CHANGE", "major" or the Attention pattern refactor!: drop support for Node 6 is found anywhere in any of the commit messages or descriptions the major version will be incremented.
