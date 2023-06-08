@@ -102,6 +102,11 @@ class MyComponent extends QuarkElement {
       localStorage.setItem('language', 'en-US')
     }
 
+    // 默认设置主题
+    if(!localStorage.getItem('theme')) {
+      localStorage.setItem('theme', 'light')
+    }
+
     // 菜单是否激活
     if(location.hash.indexOf('guide') > -1) {
       this.activeNav = 'guide'
