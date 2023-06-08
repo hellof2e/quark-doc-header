@@ -33,9 +33,7 @@ button {
   display: flex;
   align-items: center;
 }
-.active-nav {
-  color: var(--brand-color);
-}
+
 .menu-group {
   display: flex;
   gap: 2rem;
@@ -86,6 +84,10 @@ button {
 
 .nav-item button:hover {
   color: var(--nav-link-color);
+}
+
+.active-nav a {
+  color: var(--brand-color);
 }
 
 .translations,
