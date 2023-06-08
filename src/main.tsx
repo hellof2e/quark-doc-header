@@ -71,8 +71,11 @@ class MyComponent extends QuarkElement {
   @state() // 组件 url
   componentUrl = ''
 
-  @state() // 组件 url
+  @state() // 是否在quarkc
   isQuarkc = false
+
+  @state() // 菜单是否激活状态
+  activeNav = ''
 
   searchRef = createRef()
 
@@ -87,6 +90,13 @@ class MyComponent extends QuarkElement {
     // 默认设置语言
     if(!localStorage.getItem('language')) {
       localStorage.setItem('language', 'en-US')
+    }
+
+    // 菜单是否激活
+    if(location.hash.indexOf('guide') > -1) {
+      this.activeNav = 'guide'
+    } else if(location.hash.indexOf('component') > -1) {
+      this.activeNav = 'component'
     }
 
     const container = this.searchRef.current;
@@ -117,7 +127,7 @@ class MyComponent extends QuarkElement {
     } else {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
-      this.isQuarkc = true
+      this.isQuarkc = !true
     }
   }
 
@@ -177,14 +187,14 @@ class MyComponent extends QuarkElement {
                   {
                     this.isQuarkc ? null :
                     <Fragment>
-                      <div class="nav-item menu">
+                      <div class={this.activeNav  === 'guide'? 'nav-item menu active-nav' : 'nav-item menu'}>
                         <a
                           href={this.guideUrl}
                         >
                           {this.#ecosystemLangs.guide}
                         </a>
                       </div>
-                      <div class="nav-item menu">
+                      <div class={this.activeNav === 'component' ? 'nav-item menu active-nav' : 'nav-item menu'}>
                         <a
                           href={this.componentUrl}
                         >

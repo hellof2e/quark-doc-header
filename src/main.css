@@ -33,7 +33,9 @@ button {
   display: flex;
   align-items: center;
 }
-
+.active-nav {
+  color: var(--brand-color);
+}
 .menu-group {
   display: flex;
   gap: 2rem;
