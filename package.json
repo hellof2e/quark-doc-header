@@ -33,5 +33,9 @@
   },
   "dependencies": {
     "@docsearch/js": "^3.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellof2e/quark-doc-header.git"
   }
 }
