@@ -15,25 +15,13 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Get yarn cache
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache dependencies
-        uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
 
           # 打包
+      - run: npm install
       - run: npm run build
 
           # 根据commit关键词触发publish的版本 https://github.com/phips28/gh-action-bump-version#workflow
@@ -46,11 +34,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
         with:
-          patch-wording:  'patch,fix'     # Providing patch-wording will override commits
+          patch-wording:  'fix'     # Providing patch-wording will override commits
           minor-wording:  'feat'
-          major-wording:  'BC'
-                                            # defaulting to a patch bump.
-          rc-wording:     'RELEASE,alpha'
+          major-wording:  'BREAK CHANGE'
 
       - name: Publish to NPM
         run: npm publish || true
