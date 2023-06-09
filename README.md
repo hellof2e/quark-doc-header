@@ -25,17 +25,3 @@ import 'quark-doc-header/lib/index'
 // 使用
 <quark-doc-header />
 ```
-
-## 体积
-
-```bash
-➜  quark-doc-header git:(main) ✗ npm run build
-vite v4.3.9 building for production...
-✓ 5 modules transformed.
-lib/types/index.d.ts   0.53 kB
-lib/style.css         13.25 kB │ gzip:  2.97 kB
-lib/index.js          33.78 kB │ gzip: 11.55 kb
-lib/types/index.d.ts   0.53 kB
-lib/index.umd.cjs     28.48 kB │ gzip: 11.19 kB
-✓ built in 2.39s
-```
