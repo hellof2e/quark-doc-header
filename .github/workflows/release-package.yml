@@ -9,18 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2 # 先检出代码
+
+      - name: 初始化node环境
+        uses: actions/setup-node@v1
         with:
-          node-version: 16
-      - run: npm install
-      - run: npm run build
+          node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
 
-      - name: publish
+      - name: 编译部署
+        run: npm run build
+
+      - name: publish # 向npm publish 代码 请遵循npm规范.
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # 该token是 npm的token 获取npm token请查看 步骤2 的创建 npm token 和 将npm token 放入github的 secrets下
         run: npm publish
-
+      # 到这如果全部成功，那么我们就成功的将代码发布到了npm
 
 
 
