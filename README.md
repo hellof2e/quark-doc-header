@@ -5,7 +5,13 @@ https://www.npmjs.com/package/quark-doc-header
 ![1685501041275](https://github.com/hellof2e/quark-doc-header/assets/14307551/1c48d6ec-913d-485a-971c-aa071327e151)
 ![2](https://github.com/hellof2e/quark-doc-header/assets/14307551/c1da40c5-53a0-4620-90f7-83def24b7167)
 
+该组件同时被被使用在:
 
+- https://quark.hellobike.com
+- https://vue-quarkdesign.hellobike.com
+- https://react-quarkdesign.hellobike.com
+- https://vanilla-quarkdesign.hellobike.com
+- https://angular-quarkdesign.hellobike.com
 
 ## 如何使用
 
@@ -20,7 +26,7 @@ npm install quark-doc-header
 
 ```js
 // 引入
-import 'quark-doc-header/lib/index'
+import 'quark-doc-header'
 
 // 使用
 <quark-doc-header />
