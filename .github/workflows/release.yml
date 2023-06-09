@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  publish-to-npm:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -29,36 +29,3 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-        # 根据commit关键词触发publish的版本 https://github.com/phips28/gh-action-bump-version#workflow
-        # If the string "BREAKING CHANGE", "major" or the Attention pattern refactor!: drop support for Node 6 is found anywhere in any of the commit messages or descriptions the major version will be incremented.
-        # If a commit message begins with the string "feat" or includes "minor" then the minor version will be increased. This works for most common commit metadata for feature additions: "feat: new API" and "feature: new API".
-        # If a commit message contains the word "pre-alpha" or "pre-beta" or "pre-rc" then the pre-release version will be increased (for example specifying pre-alpha: 1.6.0-alpha.1 -> 1.6.0-alpha.2 or, specifying pre-beta: 1.6.0-alpha.1 -> 1.6.0-beta.0)
-        # All other changes will increment the patch version.
-      - name:  'Automated Version Bump'
-        uses:  'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
-        with:
-          minor-wording:  'add,Adds,new'
-          major-wording:  'MAJOR,cut-major'
-          patch-wording:  'patch,fixes'     # Providing patch-wording will override commits
-                                            # defaulting to a patch bump.
-          rc-wording:     'RELEASE,alpha'
-
-      # 读取对应的 package.json 版本
-      - name: Read package.json
-        uses: tyankatsu0105/read-package-version-actions@v1
-        id: package-version
-
-      - name: Create Release for Tag
-        id: release_tag
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_ACTION }} # 这块需要用到 github的token，因为需要对分之进行代码推送
-        with:
-          tag_name: v${{ steps.package-version.outputs.version }}
-          release_name: Release v${{ steps.package-version.outputs.version }}
-          prerelease: false # 是否为预发布版本
-          # body: |
-          #   请点击查看 [更新日志]().
