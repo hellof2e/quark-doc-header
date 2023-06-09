@@ -1,10 +1,8 @@
 name: Release
 
 on:
-  workflow_run:
-      workflows: ["Build bump tag"]
-      types:
-          - completed
+  push:
+    branches: [ main ]
 
 jobs:
   build:
@@ -16,20 +14,6 @@ jobs:
           node-version: 16
       - run: npm install
       - run: npm run build
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name:  'Automated Version Bump'
         uses:  'phips28/gh-action-bump-version@master'
         env:
@@ -57,3 +41,17 @@ jobs:
           prerelease: false # 是否为预发布版本
           # body: |
           #   请点击查看 [更新日志]().
+
+
+  publish-npm:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
