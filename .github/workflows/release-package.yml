@@ -26,17 +26,21 @@ jobs:
         run: npm publish
       # 到这如果全部成功，那么我们就成功的将代码发布到了npm
 
+      # 下面主要是创建 github 的release
+      # 使用 tyankatsu0105/read-package-version-actions@v1 工具来读取对应的package.json 数据
+      - name: Read package.json
+        uses: tyankatsu0105/read-package-version-actions@v1
+        id: package-version
 
-
-  # publish-npm:
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: 16
-  #         registry-url: https://registry.npmjs.org
-  #     - run: npm publish
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # 关于创建 release 的更多参数，可以查看 actions/create-release@v1
+      - name: Create Release for Tag
+        id: release_tag
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_ACTION }} # 这块需要用到 github的token，因为需要对分之进行代码推送
+        with:
+          tag_name: v${{ steps.package-version.outputs.version }}
+          release_name: Release v${{ steps.package-version.outputs.version }}
+          prerelease: false # 是否为预发布版本
+          body: |
+            请点击查看 [更新日志]().
