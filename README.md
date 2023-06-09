@@ -20,7 +20,7 @@ npm install quark-doc-header
 
 ```js
 // 引入
-import 'quark-doc-header/lib/index'
+import 'quark-doc-header'
 
 // 使用
 <quark-doc-header />
