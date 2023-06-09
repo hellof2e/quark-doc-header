@@ -56,8 +56,8 @@ class MyComponent extends QuarkElement {
   #isZhLang
   #ecosystemLangs
   #curHost
-  #isQuarkc
   #isDocNotReady
+  #isQuarkc
 
   // 响应式内部状态
   @state()  // logo
@@ -75,9 +75,6 @@ class MyComponent extends QuarkElement {
   @state() // 组件 url
   componentUrl = ''
 
-  @state() // 是否在quarkc
-  isQuarkc = false
-
   @state() // 菜单是否激活状态
   activeNav = ''
 
@@ -88,8 +85,8 @@ class MyComponent extends QuarkElement {
     this.#isZhLang = localStorage.getItem("language") === "zh-CN"
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
     this.#curHost = `https://${location.host}` // e.g. https://vue-quarkdesign.hellobike.com
-    this.#isQuarkc = ~location.host.indexOf('quark.hellobike.com') // 是否是 quarkc
     this.#isDocNotReady = false
+    this.#isQuarkc = location.host.indexOf('quark.hellobike.com') > -1 ? true : false
 
     if(~['vanilla', 'angular', 'svelte'].indexOf(location.host.split('-')[0])) {
       this.#isDocNotReady = true
@@ -97,6 +94,7 @@ class MyComponent extends QuarkElement {
   }
 
   componentDidMount(): void {
+
     // 默认设置语言
     if(!localStorage.getItem('language')) {
       localStorage.setItem('language', 'en-US')
