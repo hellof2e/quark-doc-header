@@ -12,6 +12,7 @@ https://www.npmjs.com/package/quark-doc-header
 - https://react-quarkdesign.hellobike.com
 - https://vanilla-quarkdesign.hellobike.com
 - https://angular-quarkdesign.hellobike.com
+- https://svelte-quarkdesign.hellobike.com
 
 ## 如何使用
 
