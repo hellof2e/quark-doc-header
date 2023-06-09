@@ -27,6 +27,7 @@ jobs:
       # 到这如果全部成功，那么我们就成功的将代码发布到了npm
 
       # 下面主要是创建 github 的release
+      # 需要手动修改 package.json 版本
       # 使用 tyankatsu0105/read-package-version-actions@v1 工具来读取对应的package.json 数据
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
@@ -42,5 +43,5 @@ jobs:
           tag_name: v${{ steps.package-version.outputs.version }}
           release_name: Release v${{ steps.package-version.outputs.version }}
           prerelease: false # 是否为预发布版本
-          body: |
-            请点击查看 [更新日志]().
+          # body: |
+          #   请点击查看 [更新日志]().
