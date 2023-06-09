@@ -1,5 +1,5 @@
 import { QuarkElement, Fragment, createRef, customElement, state } from "quarkc"
-import style from "./index.less"
+import style from "./index.less?inline"
 import "./dark-light-mode.mjs" // 备注：黑夜模式切换包含了全局css变量的更改，只在引用的工程中生效
 
 import docsearch from "@docsearch/js";
@@ -143,6 +143,12 @@ class MyComponent extends QuarkElement {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
     }
+
+    docsearch({
+      ...params,
+      indexName:
+        localStorage.getItem("language") === "en-US" ? "ENDoc" : "CNDoc",
+    });
   }
 
   // quark design 各类技术文档logo切换

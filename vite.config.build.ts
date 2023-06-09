@@ -12,7 +12,7 @@ export default defineConfig({
       name: "MyComponent",
     },
     rollupOptions: {
-      external: ["quarkc"], // 可选项，是否将 quarkc 打包进组件
+      external: ["quarkc", "@docsearch/js"], // 可选项，是否将 quarkc 打包进组件
       output: {
         dir: "lib",
         globals: {
