@@ -143,12 +143,6 @@ class MyComponent extends QuarkElement {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
     }
-
-    docsearch({
-      ...params,
-      indexName:
-        localStorage.getItem("language") === "en-US" ? "ENDoc" : "CNDoc",
-    });
   }
 
   // quark design 各类技术文档logo切换
