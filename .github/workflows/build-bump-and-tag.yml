@@ -26,11 +26,11 @@ jobs:
               uses: actions/checkout@v2
               with:
                 fetch-depth: 0
-                token: "${{ secrets.GITHUB_TOKEN }}"
+                token: "${{ secrets.GIT_ACTION }}"
             - id: cz
               name: Bump package
               uses: commitizen-tools/commitizen-action@master
               with:
-               github_token: ${{ secrets.GITHUB_TOKEN }}
+               github_token: ${{ secrets.GIT_ACTION }}
             - name: Print Version
               run: echo "Bumped to version ${{ steps.cz.outputs.version }}"
