@@ -1,4 +1,4 @@
-import { QuarkElement, Fragment, createRef, customElement, state } from "quarkc"
+import { QuarkElement, Fragment, createRef, customElement, state, property } from "quarkc"
 import style from "./index.less?inline"
 import "./dark-light-mode.mjs" // 备注：黑夜模式切换包含了全局css变量的更改，只在引用的工程中生效
 
@@ -59,12 +59,16 @@ class MyComponent extends QuarkElement {
   #isDocNotReady
   #isQuarkc
 
+  // 响应式外部状态
+  @property()
+  from = ''
+
   // 响应式内部状态
   @state()  // logo
-  logo = 'https://m.hellobike.com/resource/helloyun/13459/H3kyK_quarkc-light.png?x-oss-process=image/quality,q_80'
+  logo = ''
 
   @state() // github 地址
-  githubUrl = 'https://github.com/hellof2e/quark-design'
+  githubUrl = ''
 
   @state() // 首页地址
   homeUrl = 'https://quark.hellobike.com'
@@ -129,17 +133,20 @@ class MyComponent extends QuarkElement {
         indexName:
           localStorage.getItem("language") === "en-US" ? "ENDoc" : "CNDoc",
       });
-      this._quarkdLogoSwitch()
     } else if(location.host.indexOf("react-quarkdesign") > -1) {
       docsearch({
         ...params,
         indexName:
           localStorage.getItem("language") === "en-US" ? "react-ENDoc" : "react-CNDoc",
       });
-      this._quarkdLogoSwitch()
-    } else {
+    }
+
+    if(this.from === 'quarkc') {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
+    } else {
+      this._quarkdLogoSwitch()
+      this.githubUrl = 'https://github.com/hellof2e/quark-design'
     }
 
     window.addEventListener(
