@@ -141,6 +141,14 @@ class MyComponent extends QuarkElement {
       this._quarkcLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark'
     }
+
+    window.addEventListener(
+      "hashchange",
+      () => {
+        console.log("The hash has changed!");
+      },
+      false
+    );
   }
 
   // quark design 各类技术文档logo切换
