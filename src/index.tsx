@@ -71,7 +71,7 @@ class MyComponent extends QuarkElement {
   githubUrl = ''
 
   @state() // 首页地址
-  homeUrl = 'https://quark.hellobike.com'
+  homeUrl = ''
 
   @state() // 指南 url
   guideUrl = ''
@@ -88,7 +88,7 @@ class MyComponent extends QuarkElement {
     super()
     this.#isZhLang = localStorage.getItem("language") === "zh-CN"
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
-    this.#curHost = `https://${location.host}` // e.g. https://vue-quarkdesign.hellobike.com
+    this.#curHost = location.origin // e.g. https://vue-quarkdesign.hellobike.com
     this.#isDocNotReady = false
     this.#isQuarkc = location.host.indexOf('quark.hellobike.com') > -1 ? true : false
 
