@@ -1,4 +1,4 @@
-import { QuarkElement, Fragment, createRef, customElement, state, property } from "quarkc"
+import { QuarkElement, createRef, customElement, state, property } from "quarkc"
 import style from "./index.less?inline"
 import "./dark-light-mode.mjs" // 备注：黑夜模式切换包含了全局css变量的更改，只在引用的工程中生效
 
@@ -97,7 +97,18 @@ class MyComponent extends QuarkElement {
     }
   }
 
+  // 菜单是否激活
+  navActive = () => {
+    if(location.hash.indexOf('guide') > -1) {
+      this.activeNav = 'guide'
+    } else if(location.hash.indexOf('component') > -1) {
+      this.activeNav = 'component'
+    }
+  }
+
   componentDidMount(): void {
+
+    this.navActive()
 
     // 默认设置语言
     if(!localStorage.getItem('language')) {
@@ -107,13 +118,6 @@ class MyComponent extends QuarkElement {
     // 默认设置主题
     if(!localStorage.getItem('theme')) {
       localStorage.setItem('theme', 'light')
-    }
-
-    // 菜单是否激活
-    if(location.hash.indexOf('guide') > -1) {
-      this.activeNav = 'guide'
-    } else if(location.hash.indexOf('component') > -1) {
-      this.activeNav = 'component'
     }
 
     // 主页跳转地址
@@ -152,7 +156,8 @@ class MyComponent extends QuarkElement {
     window.addEventListener(
       "hashchange",
       () => {
-        console.log("The hash has changed!");
+        // console.log("The hash has changed!");
+        this.navActive()
       },
       false
     );
@@ -197,7 +202,7 @@ class MyComponent extends QuarkElement {
 
   render() {
     return (
-      <Fragment>
+      <>
         {
           this.#isDocNotReady ?
           <div className="toper-message">
@@ -219,7 +224,7 @@ class MyComponent extends QuarkElement {
                 <div class="menu-group">
                   {
                     this.#isQuarkc ? null :
-                    <Fragment>
+                    <>
                       <div class={this.activeNav  === 'guide'? 'nav-item menu active-nav' : 'nav-item menu'}>
                         <a
                           href={this.guideUrl}
@@ -235,7 +240,7 @@ class MyComponent extends QuarkElement {
                           {this.#ecosystemLangs.component}
                         </a>
                       </div>
-                    </Fragment>
+                    </>
                   }
 
                   <div class="nav-item flyout">
@@ -507,7 +512,7 @@ class MyComponent extends QuarkElement {
             </div>
           </div>
         </header>
-      </Fragment>
+      </>
     );
   }
 }
