@@ -1,6 +1,6 @@
 {
   "name": "quark-doc-header",
-  "version": "0.3.23",
+  "version": "0.3.24",
   "keywords": [
     "frontend",
     "quark",
@@ -24,8 +24,8 @@
     }
   },
   "dependencies": {
-    "quarkc": "^1.0.4",
-    "@docsearch/js": "^3.4.0"
+    "@docsearch/js": "^3.4.0",
+    "quarkc": "^1.0.10"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.1",

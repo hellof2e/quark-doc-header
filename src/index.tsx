@@ -1,6 +1,6 @@
 import { QuarkElement, createRef, customElement, state, property } from "quarkc"
 import style from "./index.less?inline"
-import "./dark-light-mode.mjs" // 备注：黑夜模式切换包含了全局css变量的更改，只在引用的工程中生效
+import "./dark-mode.tsx" // 备注：黑夜模式切换包含了全局css变量的更改，只在引用的工程中生效
 
 import docsearch from "@docsearch/js";
 import "@docsearch/css";
@@ -466,7 +466,7 @@ class MyComponent extends QuarkElement {
                 </div>
 
                 <div class="appearance">
-                  <dark-light-mode />
+                  <dark-mode />
                 </div>
 
                 <div class="social-links">
