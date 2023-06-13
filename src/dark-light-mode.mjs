@@ -140,4 +140,6 @@ class DarkLightMode extends HTMLElement {
   }
 }
 
-customElements.define("dark-light-mode", DarkLightMode);
+if (!customElements.get("dark-light-mode")) {
+  customElements.define("dark-light-mode", DarkLightMode);
+}
