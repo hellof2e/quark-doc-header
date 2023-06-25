@@ -112,7 +112,7 @@ class MyComponent extends QuarkElement {
 
     // 默认设置语言
     if(!localStorage.getItem('language')) {
-      localStorage.setItem('language', 'en-US')
+      localStorage.setItem('language', 'zh-CN')
     }
 
     // 默认设置主题
