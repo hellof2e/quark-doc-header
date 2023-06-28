@@ -206,7 +206,7 @@ class MyComponent extends QuarkElement {
         {
           this.#isDocNotReady ?
           <div className="toper-message">
-            <a href="https://vue-quarkdesign.hellobike.com">文档更新中（不影响使用），可先参照 Vue 文档（Coming soon...）</a>
+            <a href="https://vue-quarkdesign.hellobike.com">文档更新中（不影响使用），可先参照 Vue 文档（Coming soon, The document is being updated, does not affect the use, you can refer to the Vue document first...）</a>
           </div> : null
         }
         <header class="header">
