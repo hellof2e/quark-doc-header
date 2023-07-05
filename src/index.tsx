@@ -58,6 +58,7 @@ class MyComponent extends QuarkElement {
   #curHost
   #isDocNotReady
   #isQuarkc
+  #techName
 
   // 响应式外部状态
   @property()
@@ -91,8 +92,9 @@ class MyComponent extends QuarkElement {
     this.#curHost = location.origin // e.g. https://vue-quarkdesign.hellobike.com
     this.#isDocNotReady = false
     this.#isQuarkc = location.host.indexOf('quark.hellobike.com') > -1 ? true : false
+    this.#techName = location.hostname.split('-').length > 1 ? location.hostname.split('-')[0] : false
 
-    if(~['vanilla', 'angular', 'svelte'].indexOf(location.host.split('-')[0])) {
+    if(~['vanilla', 'angular', 'svelte'].indexOf(location.hostname.split('-')[0])) {
       this.#isDocNotReady = true
     }
   }
@@ -216,6 +218,14 @@ class MyComponent extends QuarkElement {
                 <a href={this.homeUrl}>
                   <img src={this.logo} alt="logo" />
                 </a>
+                {
+                  this.#techName &&
+                  <div style="margin-left: 20px; display: flex;">
+                    <span style="margin-right: 4px;">
+                      (docs for {this.#techName})
+                    </span>
+                  </div>
+                }
 
                 <div ref={this.searchRef} id="docsearch"></div>
               </div>
@@ -293,15 +303,6 @@ class MyComponent extends QuarkElement {
                               </a>
                               )
                             }
-                            {/* <p class="link menu-link" style="color: #aaa">
-                              Angular (Work in progress)
-                            </p>
-                            <p class="link menu-link" style="color: #aaa">
-                              Svelte (Work in progress)
-                            </p>
-                            <p class="link menu-link" style="color: #aaa">
-                              Javascript (Work in progress)
-                            </p> */}
                           </div>
                         </div>
                       </div>
