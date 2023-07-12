@@ -7,7 +7,7 @@ https://www.npmjs.com/package/quark-doc-header
 
 该组件同时被被使用在:
 
-- https://quark.hellobike.com
+- https://quarkc.hellobike.com
 - https://vue-quarkdesign.hellobike.com
 - https://react-quarkdesign.hellobike.com
 - https://vanilla-quarkdesign.hellobike.com

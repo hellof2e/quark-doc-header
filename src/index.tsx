@@ -91,7 +91,7 @@ class MyComponent extends QuarkElement {
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
     this.#curHost = location.origin // e.g. https://vue-quarkdesign.hellobike.com
     this.#isDocNotReady = false
-    this.#isQuarkc = location.host.indexOf('quark.hellobike.com') > -1 ? true : false
+    this.#isQuarkc = location.host.indexOf('quarkc.hellobike.com') > -1 ? true : false
     this.#techName = location.hostname.split('-').length > 1 ? location.hostname.split('-')[0] : false
 
     if(~['vanilla', 'angular', 'svelte'].indexOf(location.hostname.split('-')[0])) {
@@ -342,7 +342,7 @@ class MyComponent extends QuarkElement {
                             </p>
                             <a
                               class="link menu-link"
-                              href="https://quark.hellobike.com"
+                              href="https://quarkc.hellobike.com"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
