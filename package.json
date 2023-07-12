@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "@docsearch/js": "^3.4.0",
-    "quarkc": "^1.0.17"
+    "quarkc": "^1.0.37"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.1",
