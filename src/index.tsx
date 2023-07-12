@@ -89,7 +89,7 @@ class MyComponent extends QuarkElement {
     super()
     this.#isZhLang = localStorage.getItem("language") === "zh-CN"
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
-    this.#curHost = location.origin // e.g. https://vue-quarkdesign.hellobike.com
+    this.#curHost = location.origin // e.g. https://vue-quarkd.hellobike.com
     this.#isDocNotReady = false
     this.#isQuarkc = location.host.indexOf('quarkc.hellobike.com') > -1 ? true : false
     this.#techName = location.hostname.split('-').length > 1 ? location.hostname.split('-')[0] : false
@@ -123,7 +123,7 @@ class MyComponent extends QuarkElement {
     }
 
     // 主页跳转地址
-    this.homeUrl = this.#curHost // e.g. https://vue-quarkdesign.hellobike.com
+    this.homeUrl = this.#curHost // e.g. https://vue-quarkd.hellobike.com
     this.guideUrl = `${this.#curHost}/#/${localStorage.getItem("language")}/guide/quickstart`
     this.componentUrl = `${this.#curHost}/#/${localStorage.getItem("language")}/component/button`
 
@@ -133,13 +133,13 @@ class MyComponent extends QuarkElement {
       appId: "EA4BY59U66",
       apiKey: "5d1fd7c976a98a74421011f1374dd200",
     }
-    if(location.host.indexOf("vue-quarkdesign") > -1) {
+    if(location.host.indexOf("vue-quarkd") > -1) {
       docsearch({
         ...params,
         indexName:
           localStorage.getItem("language") === "en-US" ? "ENDoc" : "CNDoc",
       });
-    } else if(location.host.indexOf("react-quarkdesign") > -1) {
+    } else if(location.host.indexOf("react-quarkd") > -1) {
       docsearch({
         ...params,
         indexName:
@@ -208,7 +208,7 @@ class MyComponent extends QuarkElement {
         {
           this.#isDocNotReady ?
           <div className="toper-message">
-            <a href="https://vue-quarkdesign.hellobike.com">文档更新中（不影响使用），可先参照 Vue 文档（Coming soon, The document is being updated, does not affect the use, you can refer to the Vue document first...）</a>
+            <a href="https://vue-quarkd.hellobike.com">文档更新中（不影响使用），可先参照 Vue 文档（Coming soon, The document is being updated, does not affect the use, you can refer to the Vue document first...）</a>
           </div> : null
         }
         <header class="header">
@@ -281,7 +281,7 @@ class MyComponent extends QuarkElement {
                               <a
                                 key={item}
                                 class="link menu-link"
-                                href={`https://${item}-quarkdesign.hellobike.com/#/${this.#isZhLang ? 'zh-CN' : 'en-US'}/component/button`}
+                                href={`https://${item}-quarkd.hellobike.com/#/${this.#isZhLang ? 'zh-CN' : 'en-US'}/component/button`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >

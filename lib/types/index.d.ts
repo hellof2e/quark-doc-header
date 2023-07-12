@@ -10,9 +10,7 @@ declare class MyComponent extends QuarkElement {
     guideUrl: string;
     componentUrl: string;
     activeNav: string;
-    searchRef: {
-        current: any;
-    };
+    searchRef: import("quarkc").Ref<any>;
     constructor();
     navActive: () => void;
     componentDidMount(): void;
