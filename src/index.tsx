@@ -124,8 +124,8 @@ class MyComponent extends QuarkElement {
 
     // 主页跳转地址
     this.homeUrl = this.#curHost // e.g. https://vue-quarkd.hellobike.com
-    this.guideUrl = `${this.#curHost}/#/${localStorage.getItem("language")}/guide/quickstart`
-    this.componentUrl = `${this.#curHost}/#/${localStorage.getItem("language")}/component/button`
+    this.guideUrl = `${this.#curHost}/quarkd-docs/${this.#techName}/#/${localStorage.getItem("language")}/guide/quickstart`
+    this.componentUrl = `${this.#curHost}/quarkd-docs/${this.#techName}/#/${localStorage.getItem("language")}/component/button`
 
     const container = this.searchRef.current;
     const params = {
@@ -312,7 +312,7 @@ class MyComponent extends QuarkElement {
                   <div class="nav-item menu">
                     <a
                       target="_blank"
-                      href="https://quark-playground.hellobike.com/#/hello-world"
+                      href="https://quark-ecosystem.github.io/quarkd-docs/playground/"
                     >
                       Playground
                     </a>
