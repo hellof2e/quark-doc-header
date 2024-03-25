@@ -23,7 +23,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: main # action 应该部署到的分支。
-          folder: package.json # 操作应该部署的文件夹。
+          folder: src # 操作应该部署的文件夹。
           clean: true
           repository-name: hellof2e/quark-doc-home
           token: ${{ secrets.GIT_ACTION }}
