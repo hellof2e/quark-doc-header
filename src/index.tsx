@@ -133,13 +133,13 @@ class MyComponent extends QuarkElement {
       appId: "EA4BY59U66",
       apiKey: "5d1fd7c976a98a74421011f1374dd200",
     }
-    if(location.host.indexOf("vue-quarkd") > -1) {
+    if(location.pathname.indexOf("vue") > -1) {
       docsearch({
         ...params,
         indexName:
           localStorage.getItem("language") === "en-US" ? "ENDoc" : "CNDoc",
       });
-    } else if(location.host.indexOf("react-quarkd") > -1) {
+    } else if(location.pathname.indexOf("react") > -1) {
       docsearch({
         ...params,
         indexName:
