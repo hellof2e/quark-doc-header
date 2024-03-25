@@ -19,6 +19,7 @@ jobs:
       - run: npm install
       - run: npm run build
 
+      # 纯粹就是为了修改一些文件推送到另一个仓库，然后触发另一个仓库的 action
       - name: Sync
         uses: JamesIves/github-pages-deploy-action@v4
         with:
