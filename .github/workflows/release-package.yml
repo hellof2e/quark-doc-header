@@ -3,8 +3,6 @@ name: Release
 on:
   push:
     branches: [ main ]
-    paths:
-      - "**/*"
 
 jobs:
   build:
@@ -53,4 +51,4 @@ jobs:
         with:
           token: ${{ secrets.GIT_ACTION }}
           repository: hellof2e/quark-doc-home
-          event-type: dependencies-update.yml
+          event-type: my-event
