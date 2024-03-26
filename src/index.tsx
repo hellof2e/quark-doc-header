@@ -94,7 +94,7 @@ class MyComponent extends QuarkElement {
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
     this.#curHost = location.origin // e.g. https://vue-quarkd.hellobike.com
     this.#isDocNotReady = false
-    this.#isQuarkc = location.host.indexOf('quarkc.hellobike.com') > -1 ? true : false
+    this.#isQuarkc = location.pathname.indexOf('quarkc-docs') > -1 ? true : false
     this.#techName = location.pathname.split('/')[2]
 
     if(~['vanilla', 'angular', 'svelte'].indexOf(location.hostname.split('-')[0])) {

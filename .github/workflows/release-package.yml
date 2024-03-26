@@ -19,13 +19,26 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
 
+      # 修改package.json版本号, 修改后提交到仓库
+      - name: Bump version and push to GitHub
+        uses:  'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
+        with:
+          # minor-wording:  'add,Adds,new'
+          # major-wording:  'MAJOR,cut-major'
+          patch-wording:  'patch,fixes'     # Providing patch-wording will override commits
+          # patch-wording:  'feat,release'     # Providing patch-wording will override commits
+                                            # defaulting to a patch bump.
+          # rc-wording:     'RELEASE,alpha'
+
       - run: npm install
       # - run: npm run build # npm publish的时候会自动执行 prepublishOnly 脚本（package.json）
 
-      - name: publish # 向npm publish 代码 请遵循npm规范.
+      - name: Publish to NPM
+        run: npm publish || true
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # 该token是 npm的token 获取npm token请查看 步骤2 的创建 npm token 和 将npm token 放入github的 secrets下
-        run: npm publish
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       # 到这如果全部成功，那么我们就成功的将代码发布到了npm
 
       # 下面主要是创建 github 的release
