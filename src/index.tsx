@@ -302,7 +302,7 @@ class MyComponent extends QuarkElement {
                               <a
                                 key={item}
                                 class="link menu-link"
-                                href={`${this.homeUrl}#/${this.#isZhLang ? 'zh-CN' : 'en-US'}/component/button`}
+                                href={`${location.origin}/quarkd-docs/${item}/#/${this.#isZhLang ? 'zh-CN' : 'en-US'}/component/button`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
