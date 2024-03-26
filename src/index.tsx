@@ -95,7 +95,7 @@ class MyComponent extends QuarkElement {
     this.#curHost = location.origin // e.g. https://vue-quarkd.hellobike.com
     this.#isDocNotReady = false
     this.#isQuarkc = location.host.indexOf('quarkc.hellobike.com') > -1 ? true : false
-    this.#techName = location.hostname.split('-').length > 1 ? location.hostname.split('-')[0] : false
+    this.#techName = location.pathname.split('/')[2]
 
     if(~['vanilla', 'angular', 'svelte'].indexOf(location.hostname.split('-')[0])) {
       this.#isDocNotReady = true
@@ -155,7 +155,7 @@ class MyComponent extends QuarkElement {
 
     if(this.from === 'quarkc') {
       this._quarkcLogoSwitch()
-      this.githubUrl = 'https://github.com/hellof2e/quark'
+      this.githubUrl = 'https://github.com/hellof2e/quark-core'
     } else {
       this._quarkdLogoSwitch()
       this.githubUrl = 'https://github.com/hellof2e/quark-design'
