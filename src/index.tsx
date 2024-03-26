@@ -129,9 +129,9 @@ class MyComponent extends QuarkElement {
     this.tipsVisible = !localStorage.getItem('tipsVisible');
 
     // 主页跳转地址
-    this.homeUrl = this.#curHost // e.g. https://vue-quarkd.hellobike.com
-    this.guideUrl = `${this.#curHost}/quarkd-docs/${this.#techName}/#/${localStorage.getItem("language")}/guide/quickstart`
-    this.componentUrl = `${this.#curHost}/quarkd-docs/${this.#techName}/#/${localStorage.getItem("language")}/component/button`
+    this.homeUrl = `${location.origin}${location.pathname}`
+    this.guideUrl = `${this.homeUrl}${this.#techName}/#/${localStorage.getItem("language")}/guide/quickstart`
+    this.componentUrl = `${this.homeUrl}${this.#techName}/#/${localStorage.getItem("language")}/component/button`
 
     const container = this.searchRef.current;
     const params = {
@@ -230,7 +230,7 @@ class MyComponent extends QuarkElement {
         {
           this.#isDocNotReady ?
           <div className="toper-message">
-            <a href="https://vue-quarkd.hellobike.com">文档更新中（不影响当前技术栈使用），可先参照 Vue 文档（Coming soon, The document is being updated, does not affect the use, you can refer to the Vue document first...）</a>
+            <a href="https://quark-ecosystem.github.io/quarkd-docs/vue/#/zh-CN/component/button">文档更新中（不影响当前技术栈使用），可先参照 Vue 文档（Coming soon, The document is being updated, does not affect the use, you can refer to the Vue document first...）</a>
           </div> : null
         }
         <header class="header">
@@ -303,7 +303,7 @@ class MyComponent extends QuarkElement {
                               <a
                                 key={item}
                                 class="link menu-link"
-                                href={`https://${item}-quarkd.hellobike.com/#/${this.#isZhLang ? 'zh-CN' : 'en-US'}/component/button`}
+                                href={`${this.homeUrl}${item}/#/${this.#isZhLang ? 'zh-CN' : 'en-US'}/component/button`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
@@ -364,7 +364,7 @@ class MyComponent extends QuarkElement {
                             </p>
                             <a
                               class="link menu-link"
-                              href="https://quarkc.hellobike.com"
+                              href="https://github.com/hellof2e/quark-core/tree/main/packages/create-quarkc/template-quarkc-app-ts"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -386,7 +386,7 @@ class MyComponent extends QuarkElement {
                             </a>
                             <a
                               class="link menu-link"
-                              href="https://github.com/hellof2e/quark-cli"
+                              href="https://github.com/hellof2e/quark-core/tree/main/packages/create-quarkc/template-quarkc-component-ts"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
