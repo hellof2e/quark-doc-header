@@ -1,5 +1,11 @@
 # Quark 官网 & 文档公共头部组件
 
+
+本仓库更新会触发 quark-doc-home 仓库的更新，进而触发对应官网去更新。
+
+实现所有官网的公共头部更新。
+
+
 https://www.npmjs.com/package/quark-doc-header
 
 ![1685501041275](https://github.com/hellof2e/quark-doc-header/assets/14307551/1c48d6ec-913d-485a-971c-aa071327e151)
