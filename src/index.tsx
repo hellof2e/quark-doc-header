@@ -129,9 +129,9 @@ class MyComponent extends QuarkElement {
     this.tipsVisible = !localStorage.getItem('tipsVisible');
 
     // 主页跳转地址
-    this.homeUrl = `${location.origin}${location.pathname}`
-    this.guideUrl = `${this.homeUrl}${this.#techName}/#/${localStorage.getItem("language")}/guide/quickstart`
-    this.componentUrl = `${this.homeUrl}${this.#techName}/#/${localStorage.getItem("language")}/component/button`
+    this.homeUrl = `${location.origin}${location.pathname}` // https://quark-ecosystem.github.io/quarkd-docs/vue/
+    this.guideUrl = `${this.homeUrl}#/${localStorage.getItem("language")}/guide/quickstart`
+    this.componentUrl = `${this.homeUrl}#/${localStorage.getItem("language")}/component/button`
 
     const container = this.searchRef.current;
     const params = {
@@ -268,7 +268,6 @@ class MyComponent extends QuarkElement {
                         <a
                           href={this.componentUrl}
                         >
-
                           {this.#ecosystemLangs.component}
                         </a>
                       </div>
@@ -303,7 +302,7 @@ class MyComponent extends QuarkElement {
                               <a
                                 key={item}
                                 class="link menu-link"
-                                href={`${this.homeUrl}${item}/#/${this.#isZhLang ? 'zh-CN' : 'en-US'}/component/button`}
+                                href={`${this.homeUrl}#/${this.#isZhLang ? 'zh-CN' : 'en-US'}/component/button`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
