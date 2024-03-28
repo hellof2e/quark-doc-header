@@ -55,9 +55,7 @@ class MyComponent extends QuarkElement {
   // 非响应式变量
   #isZhLang
   #ecosystemLangs
-  #curHost
   #isDocNotReady
-  #isQuarkc
   #techName
 
   // 响应式外部状态
@@ -92,9 +90,7 @@ class MyComponent extends QuarkElement {
     super()
     this.#isZhLang = localStorage.getItem("language") === "zh-CN"
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
-    this.#curHost = location.origin // e.g. https://vue-quarkd.hellobike.com
     this.#isDocNotReady = false
-    this.#isQuarkc = location.pathname.indexOf('quarkc-docs') > -1 ? true : false
     this.#techName = location.pathname.split('/')[2]
 
     if(~['vanilla', 'angular', 'svelte'].indexOf(location.hostname.split('-')[0])) {
@@ -153,46 +149,15 @@ class MyComponent extends QuarkElement {
       });
     }
 
-    if(this.from === 'quarkc') {
-      this._quarkcLogoSwitch()
-      this.githubUrl = 'https://github.com/hellof2e/quark-core'
-    } else {
-      this._quarkdLogoSwitch()
-      this.githubUrl = 'https://github.com/hellof2e/quark-design'
-    }
+    this.githubUrl = 'https://github.com/hellof2e/quark-design'
 
     window.addEventListener(
       "hashchange",
       () => {
-        // console.log("The hash has changed!");
         this.navActive()
       },
       false
     );
-  }
-
-  // quark design 各类技术文档logo切换
-  _quarkdLogoSwitch = () => {
-    const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
-    if (localStorage.theme === "dark") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/MRdWv_quarkd-light.png?x-oss-process=image/quality,q_80'
-    } else if (localStorage.theme === "light") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/Z_3qI_quarkd-dark.png?x-oss-process=image/quality,q_80'
-    } else if(themeMedia.matches && localStorage.theme !== "light") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/MRdWv_quarkd-light.png?x-oss-process=image/quality,q_80'
-    }
-  }
-
-  // quarkc logo切换
-  _quarkcLogoSwitch = () => {
-    const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
-    if (localStorage.theme === "dark") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/H3kyK_quarkc-light.png?x-oss-process=image/quality,q_80'
-    } else if (localStorage.theme === "light") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/Dc16h_quarkc-dark.png?x-oss-process=image/quality,q_80'
-    } else if(themeMedia.matches && localStorage.theme !== "light") {
-      this.logo = 'https://m.hellobike.com/resource/helloyun/13459/H3kyK_quarkc-light.png?x-oss-process=image/quality,q_80'
-    }
   }
 
   _switchLang = () => {
@@ -237,9 +202,7 @@ class MyComponent extends QuarkElement {
           <div>
             <div class="container">
               <div class="left-bar">
-                <a href={this.homeUrl}>
-                  <img src={this.logo} alt="logo" />
-                </a>
+                <a href={`/quarkd-ecosystem/${this.#techName}`} class="logo"></a>
                 {
                   this.#techName &&
                   <div style="margin-left: 20px; display: flex;">
@@ -254,25 +217,20 @@ class MyComponent extends QuarkElement {
 
               <div class="toper-bar">
                 <div class="menu-group">
-                  {
-                    this.#isQuarkc ? null :
-                    <>
-                      <div class={this.activeNav  === 'guide'? 'nav-item menu active-nav' : 'nav-item menu'}>
-                        <a
-                          href={this.guideUrl}
-                        >
-                          {this.#ecosystemLangs.guide}
-                        </a>
-                      </div>
-                      <div class={this.activeNav === 'component' ? 'nav-item menu active-nav' : 'nav-item menu'}>
-                        <a
-                          href={this.componentUrl}
-                        >
-                          {this.#ecosystemLangs.component}
-                        </a>
-                      </div>
-                    </>
-                  }
+                  <div class={this.activeNav  === 'guide'? 'nav-item menu active-nav' : 'nav-item menu'}>
+                    <a
+                      href={this.guideUrl}
+                    >
+                      {this.#ecosystemLangs.guide}
+                    </a>
+                  </div>
+                  <div class={this.activeNav === 'component' ? 'nav-item menu active-nav' : 'nav-item menu'}>
+                    <a
+                      href={this.componentUrl}
+                    >
+                      {this.#ecosystemLangs.component}
+                    </a>
+                  </div>
 
                   <div class="nav-item flyout">
                     <button type="button">

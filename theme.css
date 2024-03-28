@@ -1,0 +1,74 @@
+
+:root {
+  --font-family-base: "Inter var", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --link-font-color-dark: rgba(255, 255, 255, 0.87);
+
+  --header-bg-light: #fff;
+  --line-light: rgba(60, 60, 67, .12);
+  --text-font-color-light: rgba(60, 60, 67, .92);
+
+  --brand-color: #646cff;
+  --nav-link-color: #646cff;
+
+  --brand-color-light: #bcc0ff;
+
+  --mute-light: #f6f6f7;
+
+  --main-bg: #fff;
+
+  --main-shadow: 0 12px 32px rgba(0, 0, 0, .1), 0 2px 6px rgba(0, 0, 0, .08);
+
+  --text-font-color: rgba(60, 60, 67, .92);
+  --text-code-font-color: #476582;
+
+
+  --advantage-bg: conic-gradient(from -90deg at 110% 100%, #fff 0deg, #ebecf0 90deg, #ebecf0 1turn);
+  --we-believe-bg: conic-gradient(from -90deg at 110% 100%, #fff 0deg, #ebecf0 90deg, #ebecf0 1turn);
+  --what-we-do-bg: conic-gradient(from 90deg at -10% 100%, #bcc1cd 0deg, #bcc1cd 90deg, #fff 1turn);
+
+  --arrow-light-mode-icon: url('https://raw.githubusercontent.com/hellof2e/static/main/arrow-light-mode.png');
+
+  color: var(--text-font-color);
+  background-color: var(--main-bg);
+  font-family: var(--font-family-base);
+}
+
+
+html.dark {
+  --link-font-color-dark: rgba(255, 255, 255, 0.87);
+  --main-bg: #23272f;
+  --text-font-color: rgba(255, 255, 255, 0.87);
+  --header-bg-light: #fff;
+
+  --text-font-color-light: rgba(255, 255, 255, 0.5);
+
+  --text-code-font-color: #c9def1;
+  --brand-color: #646cff;
+  --nav-link-color: #fff;
+  --brand-color-light: #bcc0ff;
+  --mute-light: #313136;
+  --line-light: rgba(82, 82, 89, .32);
+
+
+  --advantage-bg: conic-gradient(from 90deg at -10% 100%, #2b303b 0deg, #2b303b 90deg, #16181d 1turn);
+  --we-believe-bg: conic-gradient(from -90deg at 110% 100%, #2b303b 0deg, #16181d 90deg, #16181d 1turn);
+  --what-we-do-bg: conic-gradient(from 90deg at -10% 100%, #2b303b 0deg, #2b303b 90deg, #16181d 1turn);
+
+  --scroll-down-dark-color: var(--link-font-color-dark);
+  --arrow-dark-mode-icon: url('https://raw.githubusercontent.com/hellof2e/static/main/arrow-dark-mode.png');
+  --footer-bg: conic-gradient(from 90deg at -10% 100%, #2b303b 0deg, #2b303b 90deg, #16181d 1turn);
+  --logo-dark-mode: url('https://raw.githubusercontent.com/hellof2e/static/main/quarkd-logo-light-mode.png');
+
+  font-family: var(--font-family-base);
+  color: var(--link-font-color-dark);
+  background-color: var(--main-bg);
+}
+
+html.dark pre {
+  color: #1e1e20;
+}
+
+html.dark .paragraph {
+  color: var(--nav-link-color);
+}

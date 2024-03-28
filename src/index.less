@@ -29,11 +29,23 @@ button {
   width: 100%;
   background: #fff;
 }
+
+
 .toper-bar,
 .left-bar {
   display: flex;
   align-items: center;
 }
+
+.logo {
+  width: 160px;
+  height: 40px;
+  --logo-light-mode: url('https://raw.githubusercontent.com/hellof2e/static/main/quarkd-logo-dark-mode.png');
+  background-image: var(--logo-dark-mode, var(--logo-light-mode));
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 
 .menu-group {
   display: flex;
