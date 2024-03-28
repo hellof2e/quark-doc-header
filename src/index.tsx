@@ -333,7 +333,7 @@ class MyComponent extends QuarkElement {
                   <div class="nav-item menu">
                     <a
                       target="_blank"
-                      href="https://quark-ecosystem.github.io/quarkd-docs/playground/"
+                      href="https://quark-ecosystem.github.io/quarkc-docs/playground"
                     >
                       Playground
                     </a>
