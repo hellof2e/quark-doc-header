@@ -1,4 +1,5 @@
 
+/* light mode theme */
 :root {
   --font-family-base: "Inter var", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -34,7 +35,72 @@
   font-family: var(--font-family-base);
 }
 
+.nav-item a {
+  color: var(--text-font-color-light);
+  font-family: var(--font-family-base);
+}
+.nav-item a:hover {
+  color: var(--brand-color);
+}
+.social-links a {
+  color: rgba(60, 60, 67, .7);
+}
+.social-links a:hover svg {
+  color: rgba(60, 60, 67, .92);
+  transition: color .25s;
+}
+.header .container {
+  border-bottom: 1px solid var(--line-light);
+  background-color: var(--main-bg);
+}
+.doc-content-document p {
+  color: var(--text-font-color);
+}
+.doc-content-document table {
+  border: 1px solid var(--line-light);
+}
+.doc-content-document table th,
+.doc-content-document table td {
+  border-left: 1px solid var(--line-light);
+  color: var(--text-font-color-light);
+}
 
+.doc-content-document table td {
+  border-top: 1px solid var(--line-light);
+}
+
+.doc-content-document table code {
+  color: var(--text-code-font-color);
+  background-color: var(--mute-light);
+}
+
+.doc-content-document table td:first-child code {
+  color: var(--text-code-font-color);
+}
+.doc-nav {
+  border-right: 1px solid var(--line-light);
+}
+.doc-content-document p > code {
+  color: var(--text-code-font-color);
+  background-color: var(--mute-light);
+}
+.doc-content-document strong {
+  color: var(--text-font-color);
+}
+.doc-content-document blockquote {
+  background-color: rgba(100, 108, 255, .08);
+}
+.doc-content-document blockquote p {
+  color: #454ce1;
+}
+
+.doc-content-document ul li,
+.doc-content-document ol li {
+  color: var(--text-font-color);
+}
+
+
+/* dark mode theme */
 html.dark {
   --link-font-color-dark: rgba(255, 255, 255, 0.87);
   --main-bg: #23272f;
@@ -42,6 +108,7 @@ html.dark {
   --header-bg-light: #fff;
 
   --text-font-color-light: rgba(255, 255, 255, 0.5);
+  /* --text-font-color-light: rgba(255, 255, 255, 0.87); */
 
   --text-code-font-color: #c9def1;
   --brand-color: #646cff;
@@ -71,4 +138,85 @@ html.dark pre {
 
 html.dark .paragraph {
   color: var(--nav-link-color);
+}
+
+html.dark .nav-item .nav-active {
+  color: var(--brand-color);
+}
+
+html.dark .flyout-menu .menu-wrap {
+  background: var(--main-bg);
+  box-shadow:  0 1px 2px rgba(0, 0, 0, .04), 0 1px 2px rgba(0, 0, 0, .06);
+  border: 1px solid rgba(84, 84, 84, .48);
+}
+
+html.dark .flyout-menu .menu-group-title {
+  color: rgba(235, 235, 235, .38);
+}
+
+html.dark .flyout-menu .menu-link {
+  color: rgba(255, 255, 255, .87);
+}
+html.dark .flyout-menu .menu-link:hover {
+  color: #646cff;
+}
+
+
+html.dark .nav-item a:hover,
+html.dark .nav-item button:hover {
+  color: rgba(255 255 255 / 1);
+}
+html.dark .nav-item .nav-active {
+  color: #fff;
+}
+
+html.dark .social-links a:hover svg{
+  color: #fff;
+}
+
+html.dark .doc-nav a {
+  color: #fff;
+}
+html.dark .doc-nav a:hover {
+  color: var(--brand-color);
+}
+
+html.dark .translations:before, .appearance:before, .social-links:before {
+  background-color: rgba(60, 60, 67, 0.92);
+}
+
+
+html.dark .doc-content-document p > code {
+  color: var(--text-code-font-color);
+}
+html.dark .doc-content-document strong {
+  color: var(--text-font-color);
+}
+html.dark .doc-content-document blockquote p {
+  color: #bcc0ff;
+}
+html.dark .doc-content-document a {
+  color: #9499ff;
+  text-decoration: underline;
+}
+html.dark .doc-content-document a:hover {
+  color: #bcc0ff;
+}
+
+html.dark .doc-content-document table {
+  border: 1px solid #333;
+}
+html.dark .doc-content-document table th,
+html.dark .doc-content-document table td {
+  border-left: 1px solid #333;
+  color: #fff;
+}
+html.dark .doc-content-document table td  {
+  border-top: 1px solid #333;
+}
+
+html.dark .doc-content-document ul li,
+html.dark .doc-content-document ol li
+ html.dark .doc-content-document strong {
+  color: var(--text-font-color);
 }

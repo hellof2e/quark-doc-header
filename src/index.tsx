@@ -202,7 +202,7 @@ class MyComponent extends QuarkElement {
           <div>
             <div class="container">
               <div class="left-bar">
-                <a href={`/quarkd-ecosystem/${this.#techName}`} class="logo"></a>
+                <a href={`/quarkd-docs/${this.#techName}`} class="logo"></a>
                 {
                   this.#techName &&
                   <div style="margin-left: 20px; display: flex;">
