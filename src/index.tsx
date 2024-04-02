@@ -98,7 +98,6 @@ class MyComponent extends QuarkElement {
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
     this.#isDocNotReady = false
     this.#techName = location.pathname.split('/')[2]
-
     if(~['vanilla', 'angular', 'svelte'].indexOf(location.hostname.split('-')[0])) {
       this.#isDocNotReady = true
     }
@@ -453,7 +452,7 @@ class MyComponent extends QuarkElement {
                               <a
                                 key={item}
                                 class="link menu-link"
-                                href={`https://quark-ecosystem.${item.toLocaleLowerCase()}.io/quarkd-docs/#/${
+                                href={`https://quark-ecosystem.${item.toLocaleLowerCase()}.io/quarkd-docs/${this.#techName}/#/${
                                   this.#isZhLang ? "zh-CN" : "en-US"
                                 }`}
                                 target="_blank"
