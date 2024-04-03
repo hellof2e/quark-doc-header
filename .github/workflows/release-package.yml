@@ -56,8 +56,8 @@ jobs:
           tag_name: v${{ steps.package-version.outputs.version }}
           release_name: Release v${{ steps.package-version.outputs.version }}
           prerelease: false # 是否为预发布版本
-          # body: |
-          #   请点击查看 [更新日志]().
+          body: |
+            请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
 
       - uses: BobAnkh/auto-generate-changelog@v1.2.5
         with:
