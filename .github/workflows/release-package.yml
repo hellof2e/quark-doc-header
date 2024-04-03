@@ -59,7 +59,13 @@ jobs:
           # body: |
           #   请点击查看 [更新日志]().
 
-
+      - uses: BobAnkh/auto-generate-changelog@v1.2.5
+        with:
+          REPO_NAME: 'hellof2e/quark-doc-header'
+          ACCESS_TOKEN: ${{secrets.GIT_ACTION}}
+          PATH: 'CHANGELOG.md'
+          COMMIT_MESSAGE: 'docs(CHANGELOG): update release notes'
+          TYPE: 'feat:Feature,fix:Bug Fixes,docs:Documentation,refactor:Refactor,perf:Performance Improvements'
 
       # 当前 action 执行后触发另一个仓库的 action 执行
       - name: Trigger Action
