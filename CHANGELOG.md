@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## [v2.2.2](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.2.2) - 2024-04-03 07:32:47
+
+*No description*
+
+## [v2.2.1](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.2.1) - 2024-04-03 07:31:36
+
+*No description*
+
+### Bug Fixes
+
+- general:
+  - fixe: add changelog ([a13b7a2](https://github.com/hellof2e/quark-doc-header/commit/a13b7a20fb5af98337533922653c09ab545e09cf))
+
 ## [v2.2.0](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.2.0) - 2024-04-02 08:41:00
 
 *No description*
