@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v2.2.3](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.2.3) - 2024-04-03 07:33:44
+
+*No description*
+
 ## [v2.2.2](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.2.2) - 2024-04-03 07:32:47
 
 *No description*
