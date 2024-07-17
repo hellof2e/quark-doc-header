@@ -178,11 +178,6 @@ class MyComponent extends QuarkElement {
     window.location.reload();
   };
 
-  closeTips = () => {
-    localStorage.setItem('tipsVisible', 'false')
-    this.tipsVisible = false;
-  }
-
   render() {
     return (
       <>
