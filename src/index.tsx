@@ -187,17 +187,6 @@ class MyComponent extends QuarkElement {
     return (
       <>
         {
-          this.tipsVisible ?
-          <div class="toper-tips">
-            <div><a href={ this.#isZhLang ? `./#/zh-CN/guide/tips`: `./#/en-US/guide/tips`}>🎉🎉🎉 Quarkd 2.0 正式发布！支持组件外部修改内部样式，点击跳转详情。</a></div>
-            <p class="close" onClick={this.closeTips} title="不再展示">
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M13.6894 0.321198C13.2753 -0.0929086 12.6064 -0.0929086 12.1923 0.321198L7 5.50284L1.80774 0.31058C1.39363 -0.103527 0.724687 -0.103527 0.31058 0.31058C-0.103527 0.724687 -0.103527 1.39363 0.31058 1.80774L5.50284 7L0.31058 12.1923C-0.103527 12.6064 -0.103527 13.2753 0.31058 13.6894C0.724687 14.1035 1.39363 14.1035 1.80774 13.6894L7 8.49716L12.1923 13.6894C12.6064 14.1035 13.2753 14.1035 13.6894 13.6894C14.1035 13.2753 14.1035 12.6064 13.6894 12.1923L8.49716 7L13.6894 1.80774C14.0929 1.40425 14.0929 0.724687 13.6894 0.321198Z" fill="white"></path>
-              </svg>
-            </p>
-          </div> : null
-        }
-        {
           this.#isDocNotReady ?
           <div className="toper-message">
             <a href="https://quark-ecosystem.github.io/quarkd-docs/vue/#/zh-CN/component/button">文档更新中（不影响当前技术栈使用），可先参照 Vue 文档（Coming soon, The document is being updated, does not affect the use, you can refer to the Vue document first...）</a>
