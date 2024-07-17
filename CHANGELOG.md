@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## [v2.3.0](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.3.0) - 2024-07-17 11:56:36
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
+### Feature
+
+- general:
+  - remove tips ([f78439d](https://github.com/hellof2e/quark-doc-header/commit/f78439dc4a183bdccf14d2caf04cd0e7399f19f9))
+  - remove tips ([1a517cc](https://github.com/hellof2e/quark-doc-header/commit/1a517ccf083d40d22f862887986c1c7ebc7f21e9))
+
+## [v2.2.7](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.2.7) - 2024-04-03 07:37:27
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
 ## [v2.2.6](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.2.6) - 2024-04-03 07:36:29
 
 请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
