@@ -195,12 +195,65 @@ class MyComponent extends QuarkElement {
                 {
                   this.#techName &&
                   <div style="margin-left: 20px; display: flex;">
-                    <span style="margin-right: 4px;">
-                      (docs for {this.#techName})
-                    </span>
+                    <span>(docs for</span>
+                    <div class="nav-item flyout">
+                      <button type="button" style="display: flex;">
+                        <span class="hover-blue">{this.#techName}</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          aria-hidden="true"
+                          focusable="false"
+                          viewBox="0 0 24 24"
+                          class="flyout-button-text-icon"
+                        >
+                          <path
+                            d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z"
+                          ></path>
+                        </svg>
+                        <span>)</span>
+                      </button>
+
+                      <div class="flyout-menu">
+                        <div class="menu-wrap">
+                          <div class="menu-items">
+                            <div class="menu-item-group">
+                              <p class="menu-group-title">
+                                { this.#ecosystemLangs.docsTitle }
+                              </p>
+                              {
+                                this.#ecosystemLangs.stacks.map(item =>
+                                <a
+                                  key={item}
+                                  class="link menu-link"
+                                  href={`${location.origin}/quarkd-docs/${item.toLocaleLowerCase()}/#/${this.#isZhLang ? 'zh-CN' : 'en-US'}/component/button`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  { item } { this.#isZhLang ? "文档" : "documentation" }
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    height="24px"
+                                    viewBox="0 0 24 24"
+                                    width="24px"
+                                    class="link-icon"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path
+                                      d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z"
+                                    ></path>
+                                  </svg>
+                                </a>
+                                )
+                              }
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 }
-
                 <div ref={this.searchRef} id="docsearch"></div>
               </div>
 
@@ -219,62 +272,6 @@ class MyComponent extends QuarkElement {
                     >
                       {this.#ecosystemLangs.component}
                     </a>
-                  </div>
-
-                  <div class="nav-item flyout">
-                    <button type="button">
-                      <span>{this.#ecosystemLangs.docs}</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                        focusable="false"
-                        viewBox="0 0 24 24"
-                        class="flyout-button-text-icon"
-                      >
-                        <path
-                          d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z"
-                        ></path>
-                      </svg>
-                    </button>
-
-                    <div class="flyout-menu">
-                      <div class="menu-wrap">
-                        <div class="menu-items">
-                          <div class="menu-item-group">
-                            <p class="menu-group-title">
-                              { this.#ecosystemLangs.docsTitle }
-                            </p>
-                            {
-                              this.#ecosystemLangs.stacks.map(item =>
-                              <a
-                                key={item}
-                                class="link menu-link"
-                                href={`${location.origin}/quarkd-docs/${item.toLocaleLowerCase()}/#/${this.#isZhLang ? 'zh-CN' : 'en-US'}/component/button`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                { item } { this.#isZhLang ? "文档" : "documentation" }
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  aria-hidden="true"
-                                  focusable="false"
-                                  height="24px"
-                                  viewBox="0 0 24 24"
-                                  width="24px"
-                                  class="link-icon"
-                                >
-                                  <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                  <path
-                                    d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z"
-                                  ></path>
-                                </svg>
-                              </a>
-                              )
-                            }
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
 
                   <div class="nav-item menu">
@@ -433,28 +430,31 @@ class MyComponent extends QuarkElement {
                               {this.#ecosystemLangs.mirrorAddress}
                             </p>
                             {this.#ecosystemLangs.mirrors.map((item) => (
+                              
                               <a
                                 key={item}
                                 class="link menu-link"
-                                href={`https://quark-ecosystem.${item.toLocaleLowerCase()}.io/quarkd-docs/${this.#techName}/#/${
+                                href={item !== 'Gitee' ? `https://quark-ecosystem.${item.toLocaleLowerCase()}.io/quarkd-docs/${this.#techName}/#/${
                                   this.#isZhLang ? "zh-CN" : "en-US"
-                                }`}
+                                }` : null}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
-                                {item} {this.#isZhLang ? "镜像" : "Mirror"}
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  aria-hidden="true"
-                                  focusable="false"
-                                  height="24px"
-                                  viewBox="0 0 24 24"
-                                  width="24px"
-                                  class="link-icon"
-                                >
-                                  <path d="M0 0h24v24H0V0z" fill="none"></path>
-                                  <path d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z"></path>
-                                </svg>
+                                <span class={item === 'Gitee'? 'disabled-link' : ''}>
+                                  {item} {this.#isZhLang ? "镜像" : "Mirror"}
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true"
+                                    focusable="false"
+                                    height="24px"
+                                    viewBox="0 0 24 24"
+                                    width="24px"
+                                    class="link-icon"
+                                  >
+                                    <path d="M0 0h24v24H0V0z" fill="none"></path>
+                                    <path d="M9 5v2h6.59L4 18.59 5.41 20 17 8.41V15h2V5H9z"></path>
+                                  </svg>
+                                </span>
                               </a>
                             ))}
                           </div>
