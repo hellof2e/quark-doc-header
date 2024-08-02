@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## [v2.11.0](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.11.0) - 2024-08-02 06:46:51
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
+### Feature
+
+- general:
+  - docs text css update ([d76a4f6](https://github.com/hellof2e/quark-doc-header/commit/d76a4f644dcd4600352073687f3f7bc3fb3a2042))
+
+## [v2.10.1](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.10.1) - 2024-08-02 06:10:49
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
 ## [v2.10.0](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.10.0) - 2024-08-02 06:09:55
 
 请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
