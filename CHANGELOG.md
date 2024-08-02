@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v2.9.1](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.9.1) - 2024-08-02 04:39:23
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
 ## [v2.9.0](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.9.0) - 2024-08-02 04:38:32
 
 请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
