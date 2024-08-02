@@ -52,14 +52,6 @@ button {
   gap: 2rem;
 }
 
-.left-bar a {
-  color: rgb(107 114 128);
-  display: flex;
-  align-items: center;
-  margin-right: 0.5rem;
-}
-
-
 .left-bar img {
     height: 2rem;
 }
@@ -79,6 +71,55 @@ button {
   background-color: var(--main-bg);
 }
 
+.docs-switch {
+  margin-left: 20px;
+  display: flex;
+  background-color: #94a3b81a;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: 13px;
+  padding: 4px 10px;
+  &:hover {
+    background-color: #94a3b833;
+  }
+  .nav-item {
+    display: flex;
+    margin-left: 4px;
+    align-items: center;
+  }
+  .nav-item button {
+    display: flex;
+  }
+
+  .flyout {
+    position: relative;
+  }
+
+  .flyout-menu {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    // opacity: 1;
+    // visibility: visible;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
+  }
+
+  .link:hover {
+    background-color: #94a3b81a;
+  }
+
+  .flyout:hover .flyout-menu,
+  .flyout-button + .flyout-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
 .nav-item a {
   font-size: 14px;
   color: var(--text-font-color-light);
@@ -86,10 +127,6 @@ button {
 }
 
 .nav-item a:hover {
-  color: var(--nav-link-color);
-}
-
-.nav-item .hover-blue:hover {
   color: var(--nav-link-color);
 }
 
@@ -177,16 +214,17 @@ button {
   visibility: hidden;
   transform: translateY(-4px);
   transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
+  border-radius: 10px;
 }
 
 .menu-wrap {
   border-radius: 8px;
   padding: 12px 0;
   min-width: 192px;
-  border: 1px solid transparent;
   background: var(--main-bg);
   box-shadow: var(--main-shadow);
   transition: background-color 0.5s;
+  border: 1px solid var(--line-light);
 }
 
 .menu-items {
@@ -220,7 +258,7 @@ button {
 
 .disabled-link {
   text-decoration: line-through;
-  color: gray; 
+  color: gray;
 }
 
 .disabled-link:hover {
@@ -296,13 +334,6 @@ button {
 
 .DocSearch-Search-Icon {
   stroke-width: 1.6;
-}
-
-.left-bar span {
-  display: flex;
-  align-items: center;
-  color: rgb(156 163 175);
-  font-size: 14px;
 }
 
 .DocSearch-Button-Keys {
