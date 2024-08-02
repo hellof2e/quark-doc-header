@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## [v2.10.0](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.10.0) - 2024-08-02 06:09:55
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
+### Feature
+
+- general:
+  - stack change ([b5ea400](https://github.com/hellof2e/quark-doc-header/commit/b5ea4004f00715f84c80c83d9879c739e28256f3))
+
+## [v2.9.2](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.9.2) - 2024-08-02 04:40:09
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
 ## [v2.9.1](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.9.1) - 2024-08-02 04:39:23
 
 请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
