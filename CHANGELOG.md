@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## [v2.9.0](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.9.0) - 2024-08-02 04:38:32
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
+### Feature
+
+- general:
+  - theme color change ([e4c62d3](https://github.com/hellof2e/quark-doc-header/commit/e4c62d3d504cde699d927df300b32a079f42de53))
+
+## [v2.8.2](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.8.2) - 2024-08-02 04:31:15
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
 ## [v2.8.1](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.8.1) - 2024-08-02 04:30:34
 
 请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
