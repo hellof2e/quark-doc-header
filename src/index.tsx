@@ -197,7 +197,7 @@ class MyComponent extends QuarkElement {
                   <div class="docs-switch flyout">
                     docs for
                     <div class="nav-item">
-                      <span>vue{this.#techName}</span>
+                      <span>{this.#techName}</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true"
