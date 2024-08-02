@@ -193,7 +193,7 @@ class MyComponent extends QuarkElement {
               <div class="left-bar">
                 <a href={`/quarkd-docs/${this.#techName}`} class="logo"></a>
                 {
-                  !this.#techName &&
+                  this.#techName &&
                   <div class="docs-switch flyout">
                     docs for
                     <div class="nav-item">
