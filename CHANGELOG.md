@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## [v2.12.3](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.12.3) - 2024-08-02 06:57:04
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
+## [v2.12.2](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.12.2) - 2024-08-02 06:56:15
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
 ## [v2.12.1](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.12.1) - 2024-08-02 06:55:22
 
 请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
