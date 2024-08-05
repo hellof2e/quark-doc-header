@@ -1,5 +1,18 @@
 # CHANGELOG
 
+## [v2.13.0](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.13.0) - 2024-08-05 03:55:20
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
+### Feature
+
+- general:
+  - use quark-static cdn ([719e1c8](https://github.com/hellof2e/quark-doc-header/commit/719e1c889c37baf04e6f018ebceabd23b514e226))
+
+## [v2.12.7](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.12.7) - 2024-08-02 06:59:56
+
+请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
+
 ## [v2.12.6](https://github.com/hellof2e/quark-doc-header/releases/tag/v2.12.6) - 2024-08-02 06:59:14
 
 请点击查看 [更新日志](https://github.com/hellof2e/quark-doc-header/blob/main/CHANGELOG.md).
