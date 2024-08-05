@@ -1,6 +1,6 @@
 {
   "name": "quark-doc-header",
-  "version": "2.14.0",
+  "version": "2.14.1",
   "scripts": {
     "dev": "npm run start",
     "start": "vite --open",
